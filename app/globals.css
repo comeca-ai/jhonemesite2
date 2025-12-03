@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Nova paleta de cores conforme documento estratégico: Navy Profundo + Electric Blue/Cyan + Harvest Gold/Âmbar */
+:root {
+  --foreground-rgb: 30, 41, 59;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 241, 245, 249;
+
+  /* Navy Profundo - Autoridade técnica */
+  --navy-900: 15, 23, 42;
+  --navy-800: 30, 41, 59;
+  --navy-700: 51, 65, 85;
+
+  /* Electric Blue/Cyan - Tecnologia e dados */
+  --cyan-500: 6, 182, 212;
+  --cyan-400: 34, 211, 238;
+
+  /* Harvest Gold/Âmbar - Referência ao "Joio do Trigo" */
+  --gold-500: 245, 158, 11;
+  --gold-400: 251, 191, 36;
+  --gold-600: 217, 119, 6;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.binary-bg {
+  background-image: url("/binary-bg-light.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@layer components {
+  /* Gradient text atualizado com nova paleta */
+  .gradient-text {
+    background-image: linear-gradient(to right, rgb(var(--navy-800)), rgb(var(--cyan-500)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Gradient dourado para destaque "Joio do Trigo" */
+  .gradient-gold {
+    background-image: linear-gradient(to right, rgb(var(--gold-600)), rgb(var(--gold-400)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: rgb(var(--navy-800));
+  }
+
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 2.25rem;
+    }
+  }
+
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Botões atualizados com nova paleta Navy */
+  .btn-primary {
+    background-color: rgb(var(--navy-800));
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: rgb(var(--navy-900));
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+  .btn-outline {
+    border: 2px solid rgb(var(--navy-800));
+    color: rgb(var(--navy-800));
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline:hover {
+    background-color: rgb(var(--navy-800) / 0.05);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  }
+
+  /* Botão dourado para CTAs especiais */
+  .btn-gold {
+    background-color: rgb(var(--gold-500));
+    color: rgb(var(--navy-900));
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .btn-gold:hover {
+    background-color: rgb(var(--gold-600));
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+  .card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+  .responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .responsive-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
